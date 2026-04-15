@@ -1,0 +1,37 @@
+@Zand.Api_HostAddress = https://localhost:7104
+
+GET {{Zand.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{Zand.Api_HostAddress}}/api/zand
+
+###
+
+@id=0
+GET {{Zand.Api_HostAddress}}/api/zand/{{id}}
+
+###
+
+POST {{Zand.Api_HostAddress}}/api/zand
+Content-Type: application/json
+
+{
+  //Zand
+}
+
+###
+
+DELETE {{Zand.Api_HostAddress}}/api/zand/{{id}}
+
+###
+
+PUT {{Zand.Api_HostAddress}}/api/zand/{{id}}
+Content-Type: application/json
+
+{
+  //Zand
+}
+
+###
