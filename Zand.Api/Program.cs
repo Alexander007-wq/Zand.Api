@@ -1,7 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Zand.Api.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+var connectionString = builder.Configuration.GetConnectionString("ZandDbConnectionString");
+builder.Services.AddDbContext<ZandDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
