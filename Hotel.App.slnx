@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/" />
+  <Project Path="HotelListing.Api.Application/HotelListing.Api.Application.csproj" Id="ac669951-fad5-4ef5-9edf-f294b8a4fa5b" />
+  <Project Path="HotelListing.Api.Common/HotelListing.Api.Common.csproj" Id="8998518c-6ecc-4dcb-bbda-c05b12b71ec0" />
+  <Project Path="HotelListing.Api.Data/HotelListing.Api.Data.csproj" />
+  <Project Path="HotelListing.Api.Domain/HotelListing.Api.Domain.csproj" Id="6b9ab46a-017d-4573-9a2c-db3b19e19ebd" />
+  <Project Path="Zand.Api/HotelListing.Api.csproj" />
+</Solution>

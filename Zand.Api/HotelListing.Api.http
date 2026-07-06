@@ -1,0 +1,138 @@
+﻿@HotelListing.Api_HostAddress = https://localhost:7104
+### Variables
+@host = https://localhost:7104
+@json = application/json
+@hotelId =24
+@bookingId =1
+@today ={{$localDatetime iso8601}}
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ODljMzI0Ni03ZGQ4LTQ1NjUtOWE4Zi1kYjJlOTQ5MDM5MDAiLCJqdGkiOiJlZTg1ZjhiZS02OWZlLTQzYzQtOWU1My1lMjEwZWFjYzljYjEiLCJuYW1lIjoiQWRtaW4sIEhvdGVsIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiSG90ZWwgQWRtaW4iLCJleHAiOjE3ODA5MTgxNjAsImlzcyI6IkhvdGVsTGlzdGluZ0FwaSIsImF1ZCI6IkhvdGVsTGlzdGluZ0FQSUNsaWVudCJ9.ss0_YSzXG1t3d0Y_1FtHj4zjhTuFkJXzo3xp3_8qEcE
+
+###
+
+GET {{host}}/api/hotels/{{id}}
+
+###
+
+POST {{host}}/api/hotels
+Content-Type: application/json
+
+{
+  "Name" : "Santiago Bernabeu",
+  "Address" : "Madrid",
+  "Rating" : 5,
+  "CountryId" : 2
+}
+
+###
+
+DELETE {{host}}/api/hotels/{{id}}
+
+###
+
+PUT {{host}}/api/hotels/{{id}}
+Content-Type: application/json
+
+{
+  "Id" : 11,
+  "Name" : "Old Trafford",
+  "Address" : "Manchester United",
+  "Rating" : 3,
+  "CountryId" : 2
+}
+
+###
+
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email" : "okoroalexander4@gmail.com",
+  "password" : "P@sword@133"
+}
+
+###
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email" : "hoteladmin@localhost.com",
+  "password" : "P@sword@1738"
+}
+
+###
+
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{
+  "email" : "hoteladmin@localhost.com",
+  "password" : "P@sword@1738",
+  "Firstname" : "Hotel",
+  "lastname" : "Admin",
+  "role": "Hotel Admin",
+  "associatedHotelId": 11
+}
+
+###
+
+GET {{host}}/api/countries
+Authorization: Bearer {{token}}
+#Authorization: Basic dxNlcjFAbG9jYWxob3N0LmNvbTpQQHNzd29yZDE=
+###
+
+POST {{host}}/api/countries
+Content-Type: application/json
+
+{
+  //CreateCountryDto
+}
+
+###
+
+PUT {{host}}/api/countries/{{hotelId}}
+Content-Type: application/json
+
+{
+  "countryId": 24,
+  "name": "Jamaica",
+  "shortName": "JM"
+}
+
+###
+
+PATCH {{host}}/api/countries/{{hotelId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json-patch+json
+
+[
+  {
+    "op": "replace"
+    "path": "/shortName"
+    "value": "TA"
+  }
+]
+
+
+###
+
+GET {{host}}/api/countries/{{id}}
+
+###
+
+DELETE {{host}}/api/countries/{{id}}
+
+###
+
+#1. CreateBookingDto - Happy path (3 nights)
+POST {{host}}/api/hotel/{{hotelId}}/bookings
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "hotelId": {{hotelId}},
+  "checkIn": "2026-02-17",
+  "checkOut": "2026-02-21",
+  "guests": 2
+}
+
+###
